@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        margin: 0;
+        padding: 0;
+        background-color: aliceblue;
+        font-family: sans-serif;
+    }
+    .one{
+        display: flex;
+        justify-content: center;
+        padding: 10px;
+        gap: 10px;
+    }
+
+    .input{
+        width: 100px;
+        padding: 10px;
+        text-align: center;
+    }
+
+    button{
+        margin-top: 10px;
+        padding: 5px;
+        background-color:rgb(39, 3, 3) ;
+        color: white;
+        cursor: pointer;
+        position: absolute;
+        left: 45%;
+        z-index: 1;
+    }
+    button:hover{
+        background-color: rgb(10, 118, 218);
+        color: black;
+    }
+
+    .two{
+        width: 50%;
+        margin: auto;
+        background-color: aliceblue;
+        padding: 10px;
+        box-shadow: 10px rgb(26, 25, 25);
+        margin-top: 50px;
+ }
+
+   h2 {
+    text-align: center;
+    color: #f52525c4;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    box-shadow: 10px grey;
+}
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #2b2a2a;
+    
+}
+
+tr:hover {
+    background-color: #f9f9f9;
+}
+
+th {
+    background-color:antiquewhite;
+}
+
+td {
+    color: #03010d;
+}
+
+td.completed {
+    text-decoration: line-through;
+    color: #999;
+}
+@media (max-width: 600px) {
+    .two {
+        width: 100%;
+        margin: 20px;
+        padding: 10px;
+    }
+
+    th, td {
+        padding: 5px;
+    }
+}
+
+</style>
+<body>
+<div class="one">
+    <input type="text" id="task" placeholder="Task">
+    <input type="date" id="date" placeholder="Date">
+    <input type="text" id="priority" placeholder="Priority">
+    <input type="text" id="status" placeholder="Status">
+</div>
+
+<button onclick="Add()">Add Task</button>
+
+<div class="two">
+    <h2>To-Do-List</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Task</th>
+                <th>Date</th>
+                <th>Priority</th>
+                <th>status</th>
+            </tr>
+        </thead>
+        <tbody id="task-list"> </tbody>
+       </table>
+</div>
+
+<script>
+    const Add= () =>{
+    const task = document.getElementById('task').value;
+    const date = document.getElementById('date').value;
+    const priority = document.getElementById('priority').value;
+    const status = document.getElementById('status').value;
+    
+       
+    const newRow = document.createElement('tr');
+
+    const taskCell = document.createElement('td');
+    taskCell.textContent = task;
+    newRow.appendChild(taskCell);
+
+    const dateCell = document.createElement('td');
+    dateCell.textContent = date;
+    newRow.appendChild(dateCell);
+
+   const priorityCell = document.createElement('td');
+   priorityCell.textContent = priority;
+   newRow.appendChild(priorityCell);
+
+   const statusCell = document.createElement('td');
+   statusCell.textContent = status;
+   newRow.appendChild(statusCell);
+
+
+   document.getElementById('task-list').appendChild(newRow);
+
+
+}
+
+
+
+
+
+</script>
+</body>
+</html>
